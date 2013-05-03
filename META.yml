@@ -21,6 +21,7 @@ no_index:
 requires:
   Dezi: 0.002006
   Plack::Middleware::Deflater: 0
+  Plack::Middleware::JSONP: 0
   Test::More: 0
   perl: 5.8.3
 resources:
@@ -28,4 +29,4 @@ resources:
   homepage: https://github.com/karpet/dezi-multitenant
   license: http://opensource.org/licenses/gpl-license.php
   repository: http://github.com/karpet/dezi-multitenant
-version: 0.001
+version: 0.002
