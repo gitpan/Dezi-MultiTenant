@@ -12,7 +12,7 @@ use Carp;
 use Module::Load;
 use Scalar::Util qw( blessed );
 
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 
 =head1 NAME
 
@@ -101,9 +101,6 @@ sub app {
         # global logging
         enable "SimpleLogger", level => $config->{'debug'} ? "debug" : "warn";
 
-        # JSONP response based on 'callback' param
-        enable "JSONP";
-
         # optional gzip compression for clients that request it
         # client must set "Accept-Encoding" request header
         enable "Deflater",
@@ -114,6 +111,9 @@ sub app {
             'application/json',
             ],
             vary_user_agent => 1;
+
+        # JSONP response based on 'callback' param
+        enable "JSONP";
 
         # / is self-description
         $url_map->map(
